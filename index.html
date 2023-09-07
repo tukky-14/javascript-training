@@ -25,6 +25,9 @@
   <script>
     const form = document.getElementById("form");
     const submit = document.getElementById("form");
+
+    // フォーム要素に対してsubmitイベントを設定すれば、制約検証が行われる
+    // ボタン要素に対してclickイベントを設定しても、制約検証は行われない
     form.addEventListener("submit", function (e) {
       // submit.addEventListener("click", function (e) {
       e.preventDefault();
