@@ -1,0 +1,42 @@
+<!-- 制約検証 -->
+<!-- https://developer.mozilla.org/ja/docs/Web/HTML/Constraint_validation -->
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .block {
+        display: block;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="form">
+      <input class="block" type="text" name="name" id="name" required />
+      <input class="block" type="text" name="email" id="email" />
+      <input class="block" type="text" name="password" id="password" />
+      <input class="block" type="submit" value="送信" id="submit" />
+    </form>
+  </body>
+  <script>
+    const form = document.getElementById("form");
+    const submit = document.getElementById("form");
+    form.addEventListener("submit", function (e) {
+      // submit.addEventListener("click", function (e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const data = {
+        name: name,
+        email: email,
+        password: password,
+      };
+      console.log("data:", data);
+    });
+  </script>
+</html>
