@@ -1,6 +1,26 @@
 <!-- 制約検証 -->
 <!-- https://developer.mozilla.org/ja/docs/Web/HTML/Constraint_validation -->
 
+<!-- 
+（ChatGPTより）
+submitイベントとclickイベントの違い
+
+・form要素の"submit"イベントのリスニング
+・"click"イベントのリスニング
+
+トリガーされるタイミング：
+submitイベント：formが送信されるときにトリガーされます。これはsubmitボタンがクリックされた時、またはフォーム内のテキストフィールドでEnterキーが押された時などがあります。
+clickイベント：submitボタンがクリックされた時にトリガーされます。他の送信方法（例：Enterキーの押下）ではトリガーされません。
+
+制約の検証：
+submitイベント：フォームが送信される前に、HTMLの制約検証が自動的に行われます（例：required属性など）。e.preventDefault()を使うと、この検証後にフォームの送信を防止できます。
+clickイベント：クリックイベントは制約の検証が行われる前にトリガーされます。このため、フォームの検証を手動で行いたい場合は、"click"イベントを使用すると良いでしょう。
+
+利用シナリオ：
+submitイベント：フォームのデータ送信処理をカスタマイズしたい場合に便利です。制約検証後のデータ処理やエラーハンドリングなどを行いたい場合に適しています。
+clickイベント：ボタンがクリックされたときの特定のアクションをトリガーしたい場合に便利です。ただし、フォームの送信に関連しない動作をトリガーする場合には、このイベントを使用することが推奨されます。
+-->
+
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -23,13 +43,14 @@
     </form>
   </body>
   <script>
+    // id="form"のform要素を取得
     const form = document.getElementById("form");
-    const submit = document.getElementById("form");
+    // id="submit"のsubmit要素を取得
+    const submit = document.getElementById("submit");
 
-    // フォーム要素に対してsubmitイベントを設定すれば、制約検証が行われる
-    // ボタン要素に対してclickイベントを設定しても、制約検証は行われない
-    form.addEventListener("submit", function (e) {
-      // submit.addEventListener("click", function (e) {
+    // form.addEventListener("submit", function (e) {
+    submit.addEventListener("click", function (e) {
+      // デフォルトのイベントをキャンセル
       e.preventDefault();
       const name = document.getElementById("name").value;
       const email = document.getElementById("email").value;
