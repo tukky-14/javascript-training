@@ -15,15 +15,25 @@ const string = 'test'; // 文字列
 const number = 123; // 数値
 const boolean = true; // 真偽値（if文とかに使う）
 
-const array = ['apple', 'banana', 'orange']; // 配列
-const object = { id: 1, name: 'akane' }; // オブジェクト
+// 配列
+const array = ['apple', 'banana', 'orange'];
+// 配列の要素を取得
+console.log(array[0]); // apple
+
+// オブジェクト
+const object = { id: 1, name: 'akane' };
+// オブジェクトのプロパティを取得
+console.log(object.id); // 1
 
 // オブジェクト配列
 const objArray = [
-    { id: 1, name: 'akane' },
-    { id: 2, name: 'kotone' },
-    { id: 3, name: 'taro' },
+    { id: 1, name: 'taro' },
+    { id: 2, name: 'jiro' },
+    { id: 3, name: 'hanako' },
 ];
+// オブジェクト配列の要素を取得
+console.log(objArray[0].id); // 1
+console.log(objArray[1].name); // jiro
 
 /**ーーーーーーーーーーーーーーーーーーーー
  * 条件式と演算子
@@ -47,9 +57,26 @@ num2 % 2 === 1 ? console.log('num2は奇数です') : console.log('num2は偶数
 /**ーーーーーーーーーーーーーーーーーーーー
  * 繰り返し処理
 ーーーーーーーーーーーーーーーーーーーーー*/
-// for文
-for (let i = 0; i < 3; i++) {
+const animals = ['dog', 'cat', 'rabbit'];
+// for
+for (let i = 0; i < animals.length; i++) {
+    console.log(animals[i]);
+}
+
+// for of
+animals.forEach((animal) => console.log(animal));
+for (const animal of animals) {
+    console.log(animal);
+}
+
+// forEach
+animals.forEach((animal) => console.log(animal));
+
+// while文
+let i = 0;
+while (i < 3) {
     console.log(i);
+    i++;
 }
 
 /**ーーーーーーーーーーーーーーーーーーーー
@@ -104,5 +131,3 @@ const result10 = fruits.map((fruit) => fruit + 'good');
 const result11 = fruits.filter((fruit) => fruit === 'banana');
 // reduce
 const result12 = fruits.reduce((prev, current) => prev + current);
-// forEach
-fruits.forEach((fruit) => console.log(fruit));
