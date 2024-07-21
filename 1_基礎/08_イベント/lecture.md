@@ -25,8 +25,4 @@
 | `scroll`           | 要素やウィンドウがスクロールされたときに発生します。                           | ページをスクロールするときにヘッダーを固定表示する。                     |
 | `input`            | 入力要素の値が変わるたびに発生します。                                         | テキストフィールドの入力内容をリアルタイムで反映する。                   |
 
-<br/>
-
-### 参考
-
 [EventTarget: addEventListener() メソッド](https://developer.mozilla.org/ja/docs/Web/API/EventTarget/addEventListener)
