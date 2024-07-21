@@ -27,10 +27,9 @@ calcNum3(1, 3);
 
 <br/>
 
-### 文字列関数
+### 文字列メソッド
 
 ```javascript
-// 文字列関数
 const str = 'apple,banana,orange';
 // split
 const result = str.split(',');
@@ -52,7 +51,7 @@ const result = str.toLowerCase();
 
 <br/>
 
-### 配列関数
+### 配列メソッド
 
 ```javascript
 const fruits = ['apple', 'banana', 'orange'];
