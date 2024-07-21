@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>API通信のサンプル</h1>
+        <button id="fetchDataBtn">天気情報を取得</button>
+        <div id="result"></div>
+
+        <script>
+            document.getElementById('fetchDataBtn').addEventListener('click', function () {
+                // APIエンドポイントのURL
+                const apiUrl =
+                    'https://api.open-meteo.com/v1/forecast?latitude=35.6895&longitude=139.6917&current_weather=true';
+
+                // fetchを使ってAPIリクエストを送る
+                fetch(apiUrl)
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error('ネットワークの応答が問題になりました');
+                        }
+                        return response.json(); // レスポンスをJSON形式に変換
+                    })
+                    .then((data) => {
+                        console.log(data); // データをコンソールに表示
+
+                        // 結果をページに表示
+                        const weather = data.current_weather;
+                        const resultDiv = document.getElementById('result');
+                        resultDiv.innerHTML = `
+                        <p>天気情報:</p>
+                        <ul>
+                            <li>気温: ${weather.temperature}°C</li>
+                            <li>風速: ${weather.windspeed} km/h</li>
+                            <li>風向: ${weather.winddirection}°</li>
+                        </ul>
+                    `;
+                    })
+                    .catch((error) => {
+                        console.error('エラー:', error); // エラーがあったら表示
+                        document.getElementById('result').textContent = 'データの取得に失敗しました。';
+                    });
+            });
+        </script>
+    </body>
+</html>

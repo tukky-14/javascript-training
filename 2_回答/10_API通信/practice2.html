@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dog API Example</title>
+    </head>
+    <body>
+        <h1>ランダムな犬の画像を表示</h1>
+        <button id="fetchDogImageBtn">犬の画像を取得</button>
+        <div id="result"></div>
+
+        <script>
+            document.getElementById('fetchDogImageBtn').addEventListener('click', function () {
+                // APIエンドポイントのURL
+                const apiUrl = 'https://dog.ceo/api/breeds/image/random';
+
+                // fetchを使ってAPIリクエストを送る
+                fetch(apiUrl)
+                    .then((response) => response.json()) // レスポンスをJSON形式に変換
+                    .then((data) => {
+                        console.log(data); // データをコンソールに表示
+
+                        // 結果をページに表示
+                        const resultDiv = document.getElementById('result');
+                        resultDiv.innerHTML = `
+                        <img src="${data.message}" alt="犬の画像" width="300">
+                    `;
+                    })
+                    .catch((error) => {
+                        console.error('エラー:', error); // エラーがあったら表示
+                        document.getElementById('result').textContent = 'データの取得に失敗しました。';
+                    });
+            });
+        </script>
+    </body>
+</html>

@@ -8,6 +8,7 @@ const pathList = [
     './07_非同期処理/practice.js',
     './08_イベント/practice.html',
     './09_フォーム/practice.html',
+    './10_API通信/practice.html',
 ];
 
 for (const path of pathList) {
