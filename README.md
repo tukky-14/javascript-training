@@ -8,5 +8,13 @@
 [06\_関数](./1_基礎/06_関数/lecture.md)  
 [07\_非同期処理](./1_基礎/07_非同期処理/lecture.md)  
 [08\_イベント](./1_基礎/08_イベント/lecture.md)  
-[09\_フォーム](./1_基礎/09_フォーム/lecture.md)
+[09\_フォーム](./1_基礎/09_フォーム/lecture.md)  
 [10_API 通信](./1_基礎/10_API通信/lecture.md)
+
+### 参考資料
+
+[JavaScript リファレンス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference)  
+[JavaScript Primer](https://jsprimer.net/)  
+[現代の JavaScript チュートリアル](https://ja.javascript.info/)  
+[モダン JavaScript チートシート](https://mbeaudru.github.io/modern-js-cheatsheet/translations/ja-JP.html)  
+[QuickRef.ME JavaScript cheatsheet](https://quickref.me/javascript)
