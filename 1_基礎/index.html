@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,24 +8,15 @@
     </head>
     <body>
         <h1>JavaScript 基礎</h1>
-        <script>
-            const pathList = [
-                './01_変数/lecture.js',
-                './02_条件式と演算子/lecture.js',
-                './03_関数/lecture.js',
-                './04_オブジェクト/lecture.js',
-                './05_配列/lecture.js',
-                './07_例外/lecture.js',
-                './08_非同期処理/lecture.js',
-            ];
+        <script src="main.js"></script>
 
-            for (const path of pathList) {
-                const link = document.createElement('a');
-                link.classList.add('block');
-                link.textContent = path;
-                link.href = path;
-                document.body.appendChild(link);
-            }
-        </script>
+        <!-- ⭐︎実行するファイルのコメントアウトを解除します⭐︎ -->
+        <!-- <script src="./01_変数/practice.js"></script> -->
+        <!-- <script src="./02_条件式と演算子/practice.js"></script> -->
+        <!-- <script src="./03_オブジェクト/practice.js"></script> -->
+        <!-- <script src="./04_配列/practice.js"></script> -->
+        <!-- <script src="./05_繰り返し処理/practice.js"></script> -->
+        <!-- <script src="./06_関数/practice.js"></script> -->
+        <script src="./07_非同期処理/practice.js"></script>
     </body>
 </html>
