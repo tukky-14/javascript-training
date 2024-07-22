@@ -5,7 +5,7 @@
 const object = { id: 1, name: 'taro' };
 
 // オブジェクトの値を取得
-console.log(object[id]); // 1
+console.log(object['id']); // 1
 console.log(object.id); // 1
 
 // プロパティの追加

@@ -23,17 +23,13 @@ while (i < 3) {
 }
 
 // for in（オブジェクト配列に対して使用する繰り返し処理）
-const objArray = [
-    { id: 1, name: 'taro' },
-    { id: 2, name: 'jiro' },
-    { id: 3, name: 'hanako' },
-];
-for (obj in objArray) {
-    console.log(obj);
+const object = { id: 1, name: 'taro', age: 20 };
+for (key in object) {
+    console.log(key);
 }
 // 下記でも同様の処理が可能
-Object.keys(objArray).forEach((obj) => {
-    console.log(obj);
+Object.keys(objArray).forEach((key) => {
+    console.log(key);
 });
 ```
 
