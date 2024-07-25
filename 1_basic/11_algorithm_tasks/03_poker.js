@@ -16,8 +16,17 @@ for (let i = 0; i < 5; i++) {
 }
 
 const poker = (hand) => {
-    const isFlush = hand.every((card, i, hand) => card.suit === hand[0].suit);
-    const isStraight = hand.every((card, i, hand) => card.rank === ranks[i]);
+    const sortedHand = hand.slice().sort((a, b) => ranks.indexOf(a.rank) - ranks.indexOf(b.rank));
+
+    const isFlush = sortedHand.every((card) => card.suit === sortedHand[0].suit);
+
+    const isStraight = sortedHand.every((card, i) => {
+        if (i === 0) return true;
+        const prevIndex = ranks.indexOf(sortedHand[i - 1].rank);
+        const currIndex = ranks.indexOf(card.rank);
+        return currIndex === prevIndex + 1;
+    });
+
     const isStraightFlush = isFlush && isStraight;
     const isFourOfAKind = ranks.some((rank) => hand.filter((card) => card.rank === rank).length === 4);
     const isFullHouse =
@@ -26,6 +35,7 @@ const poker = (hand) => {
     const isThreeOfAKind = ranks.some((rank) => hand.filter((card) => card.rank === rank).length === 3);
     const isTwoPair = ranks.filter((rank) => hand.filter((card) => card.rank === rank).length === 2).length === 2;
     const isOnePair = ranks.some((rank) => hand.filter((card) => card.rank === rank).length === 2);
+
     if (isStraightFlush) return 'ストレートフラッシュ';
     if (isFourOfAKind) return 'フォーカード';
     if (isFullHouse) return 'フルハウス';
