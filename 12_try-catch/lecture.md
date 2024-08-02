@@ -64,3 +64,43 @@ try {
     console.error(JSON.stringify(errorLog, null, 2));
 }
 ```
+
+<br/>
+
+### エラーの伝播
+
+親関数から実行した子関数でエラーが発生したとき、キャッチしたエラーを再スローすると親関数の catch ブロックでもそのエラーをキャッチすることができる。
+
+```javascript
+async function parentFunction() {
+    try {
+        await childFunction();
+    } catch (error) {
+        console.log('Error caught in parentFunction:', error);
+    }
+}
+
+async function childFunction() {
+    try {
+        await apiCallFunction();
+    } catch (error) {
+        console.log('Error caught in childFunction:', error);
+        throw error; // エラーを再スローする
+    }
+}
+
+async function apiCallFunction() {
+    // ここでAPI通信を行う
+    throw new Error('API call failed'); // 仮のエラー
+}
+
+parentFunction();
+
+// Error caught in childFunction: API call failed
+// Error caught in parentFunction: API call failed
+```
+
+1. apiCallFunction で発生したエラー（new Error('API call failed')）は、まず childFunction の catch ブロックでキャッチされる。
+2. childFunction の catch ブロックでエラーメッセージをログに出力した後、そのエラーを throw error で再スローする。
+3. 再スローされたエラーは、parentFunction の catch ブロックでキャッチされる。
+4. parentFunction の catch ブロックでもエラーメッセージをログに出力する。
